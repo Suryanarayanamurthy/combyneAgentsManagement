@@ -3,12 +3,27 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
+var ParseServer = require('parse-server').ParseServer;
+
+var api = new ParseServer({
+   databaseURI: 'mongodb://suryanarayanamurthy:Nikru123$@ds141118.mlab.com:41118/sandbox',
+  cloud: './cloud/main.js',
+  appId: '​ combyne-assignment-5-appid',
+  masterKey: 'combyne-assignment-5-masterkey',
+  serverURL: process.env.PORT || 8080
+});
+console.log(api);
+
+
 
 var CONTACTS_COLLECTION = "contacts";
+
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
+app.use('/parse', api);
+console.log("connected to parse");
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -59,7 +74,7 @@ app.post("/contacts", function(req, res) {
   var newContact = req.body;
   newContact.createDate = new Date();
 
-  if (!(req.body.firstName || req.body.lastName)) {
+  if (!(req.body.name)) {
     handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
   }
 
