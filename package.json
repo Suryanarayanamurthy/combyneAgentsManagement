@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/chrisckchang/mean-contactlist",
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "mongodb": "^2.0.43"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16"
   }
 }
