@@ -6,7 +6,7 @@ var ObjectID = mongodb.ObjectID;
 var ParseServer = require('parse-server').ParseServer;
 
 var api = new ParseServer({
-   databaseURI: 'mongodb://suryanarayanamurthy:Nikru123$@ds141118.mlab.com:41118/sandbox',
+  databaseURI: 'mongodb://suryanarayanamurthy:Nikru123$@ds141118.mlab.com:41118/sandbox',
   cloud: './cloud/main.js',
   appId: '​ combyne-assignment-5-appid',
   masterKey: 'combyne-assignment-5-masterkey',
